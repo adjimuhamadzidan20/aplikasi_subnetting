@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?hal=host_network">Host Network</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?hal=hasil">Hasil Perhitungan</a>
+        </li>
       </ul>
     </div>
   </div>
