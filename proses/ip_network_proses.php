@@ -3,8 +3,8 @@
 
 	if (isset($_GET['proses'])) {
 		if ($_GET['proses'] == 'tambah') {
-			$alamatIp = $_POST['alamat_ip'];
-			$slashIp = $_POST['slash_ip'];
+			$alamatIp = htmlspecialchars($_POST['alamat_ip']);
+			$slashIp = htmlspecialchars($_POST['slash_ip']);
 
 			$query = "INSERT INTO tb_network VALUES ('', '$alamatIp', '$slashIp')";
 			$return = mysqli_query($conn, $query);

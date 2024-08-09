@@ -3,8 +3,8 @@
 
 	if (isset($_GET['proses'])) {
 		if ($_GET['proses'] == 'tambah') {
-			$bagianAlamat = $_POST['bagian'];
-			$hostIp = $_POST['host'];
+			$bagianAlamat = htmlspecialchars($_POST['bagian']);
+			$hostIp = htmlspecialchars($_POST['host']);
 
 			$query = "INSERT INTO tb_host VALUES ('', '$bagianAlamat', '$hostIp')";
 			$return = mysqli_query($conn, $query);
@@ -41,7 +41,6 @@
 			// data jumlah host
 			$queryHost = "SELECT jumlah_host FROM tb_host";
 			$returnHost = mysqli_query($conn, $queryHost);
-			// $jumlahData = mysqli_num_rows($returnHost);
 			$dataHost = [];
 			while ($row = mysqli_fetch_assoc($returnHost)) {
 				$dataHost[] = $row['jumlah_host'];
@@ -103,13 +102,13 @@
 
         // Store the subnet information
         $subnets[] = [
-        		'host' => $host,
-            'network' => long2ip($networkBinary),
-            'ip_awal' => long2ip($networkBinary + 1),
-            'ip_akhir' => long2ip($broadcastBinary - 1),
-            'broadcast' => long2ip($broadcastBinary),
-            'prefix' => $prefix,
-            'subnet_mask' => long2ip(-1 << (32 - $subnetMask)),
+      		'host' => $host,
+          'network' => long2ip($networkBinary),
+          'ip_awal' => long2ip($networkBinary + 1),
+          'ip_akhir' => long2ip($broadcastBinary - 1),
+          'broadcast' => long2ip($broadcastBinary),
+          'prefix' => $prefix,
+          'subnet_mask' => long2ip(-1 << (32 - $subnetMask)),
         ];
 
         // Update network for next subnet
