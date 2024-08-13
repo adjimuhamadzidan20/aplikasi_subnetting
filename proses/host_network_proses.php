@@ -38,22 +38,6 @@
 			// jika host >= 28 dan <= 58 = /26 -> 64
 			// jika host >= 58 dan <= 128 = /25 -> 128
 
-			// data jumlah host
-			$queryHost = "SELECT jumlah_host FROM tb_host";
-			$returnHost = mysqli_query($conn, $queryHost);
-			$dataHost = [];
-			while ($row = mysqli_fetch_assoc($returnHost)) {
-				$dataHost[] = $row['jumlah_host'];
-			}
-
-			// data ip network
-			$queryIp = "SELECT alamat_ip FROM tb_network";
-			$returnIp = mysqli_query($conn, $queryIp);
-			$dataIp = [];
-			while ($ip = mysqli_fetch_assoc($returnIp)) {
-				$dataIp[] = $ip['alamat_ip'];
-			}
-
 			// range prefix
 			$prefix_25 = 25;
 			$prefix_26 = 26;
@@ -64,8 +48,24 @@
 			$prefix_31 = 31;
 			$prefix_32 = 32;
 
+			// data jumlah host
+			$queryHost = "SELECT id, jumlah_host FROM tb_host";
+			$returnHost = mysqli_query($conn, $queryHost);
+			$dataHost = [];
+			while ($row = mysqli_fetch_assoc($returnHost)) {
+				$dataHost[] = $row;
+			}
+
+			// data ip network
+			$queryIp = "SELECT alamat_ip FROM tb_network";
+			$returnIp = mysqli_query($conn, $queryIp);
+			$dataIp = [];
+			while ($ip = mysqli_fetch_assoc($returnIp)) {
+				$dataIp[] = $ip['alamat_ip'];
+			}
+
 	    // Sort hosts by descending order
-	    rsort($dataHost);
+	    rsort($dataHost['jumlah_host']);
 
 	    // Convert network address to binary
 	    $networkBinary = ip2long($dataIp[0]);
@@ -73,22 +73,22 @@
 	    // Loop through each required subnet
 	    foreach ($dataHost as $host) {
         // Calculate the number of bits needed for hosts
-        $bits = ceil(log($host + 2, 2));
+        $bits = ceil(log($host['jumlah_host'] + 2, 2));
 
         // prefix berdasarkan jumlah host
-        if ($host >= 1 && $host <= 4) {
+        if ($host['jumlah_host'] >= 1 && $host['jumlah_host'] <= 4) {
 					$prefix = $prefix_29;
 				} 
-				else if ($host >= 4 && $host <= 12) {
+				else if ($host['jumlah_host'] >= 4 && $host['jumlah_host'] <= 12) {
 					$prefix = $prefix_28;
 				} 
-				else if ($host >= 12 && $host <= 28) {
+				else if ($host['jumlah_host'] >= 12 && $host['jumlah_host'] <= 28) {
 					$prefix = $prefix_27;
 				}
-				else if ($host >= 28 && $host <= 58) {
+				else if ($host['jumlah_host'] >= 28 && $host['jumlah_host'] <= 58) {
 					$prefix = $prefix_26;
 				}
-				else if ($host >= 58 && $host <= 128) {
+				else if ($host['jumlah_host'] >= 58 && $host['jumlah_host'] <= 128) {
 					$prefix = $prefix_25;
 				}
         
@@ -102,7 +102,7 @@
 
         // Store the subnet information
         $subnets[] = [
-      		'host' => $host,
+      		'id' => $host['id'],
           'network' => long2ip($networkBinary),
           'ip_awal' => long2ip($networkBinary + 1),
           'ip_akhir' => long2ip($broadcastBinary - 1),
@@ -117,7 +117,7 @@
 
 	    // hasil perhitungan masuk ke database
 	    foreach ($subnets as $hasil) {
-	    	$hostItem = $hasil['host'];
+	    	$hostID = $hasil['id'];
         $networkIp = $hasil['network'];
         $ipAwal = $hasil['ip_awal'];
         $ipAkhir = $hasil['ip_akhir'];
@@ -125,7 +125,7 @@
         $pref = $hasil['prefix'];
         $subnet = $hasil['subnet_mask'];
 
-	    	$query = "INSERT INTO tb_hasil VALUES ('', '$hostItem', '$networkIp', '$ipAwal', '$ipAkhir', '$ipBroad', 
+	    	$query = "INSERT INTO tb_hasil VALUES ('', '$hostID', '$networkIp', '$ipAwal', '$ipAkhir', '$ipBroad', 
 	    	'$pref', '$subnet')";
 				$return = mysqli_query($conn, $query);
 	    }

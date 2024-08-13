@@ -3,14 +3,24 @@
 
 	if (isset($_GET['proses'])) {
 		if ($_GET['proses'] == 'tambah') {
-			$alamatIp = htmlspecialchars($_POST['alamat_ip']);
-			$slashIp = htmlspecialchars($_POST['slash_ip']);
+			$queryNet = "SELECT * FROM tb_network";
+			$returnNet = mysqli_query($conn, $queryNet);
+			$jumlah = mysqli_num_rows($returnNet);
 
-			$query = "INSERT INTO tb_network VALUES ('', '$alamatIp', '$slashIp')";
-			$return = mysqli_query($conn, $query);
+			if ($jumlah == 1) {
+				header('Location: ../index.php?hal=ip_network');
+				exit;
+			} 
+			else {
+				$alamatIp = htmlspecialchars($_POST['alamat_ip']);
+				$slashIp = htmlspecialchars($_POST['slash_ip']);
 
-			header('Location: ../index.php?hal=ip_network');
-			exit;
+				$query = "INSERT INTO tb_network VALUES ('', '$alamatIp', '$slashIp')";
+				$return = mysqli_query($conn, $query);
+
+				header('Location: ../index.php?hal=ip_network');
+				exit;
+			}
 		} 
 		else if ($_GET['proses'] == 'hapus') {
 			$id = $_GET['id'];

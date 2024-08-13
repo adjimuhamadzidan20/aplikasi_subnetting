@@ -26,6 +26,7 @@
 		  			<input type="text" class="form-control" placeholder="Masukkan Slash IP" name="slash_ip" required>
 		  		</div>
 		  	</div>
+		  	<span class="text-secondary" style="font-size: 12px;"><i>*IP Network tidak bisa dimasukkan lebih dari 1</i></span>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Simpan</button>
 		</form>
