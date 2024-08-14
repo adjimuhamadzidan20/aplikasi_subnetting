@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?hal=hasil">Hasil Perhitungan</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?hal=tentang">Tentang</a>
+        </li>
       </ul>
     </div>
   </div>

@@ -32,7 +32,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="judul-hasil-perhitungan mt-4">
-					<h4>Hasil perhitungan belum tersedia..</h4>	
+					<h5>Hasil perhitungan belum tersedia..</h5>	
 				</div>
 			</div>
 		</div>
@@ -41,8 +41,14 @@
 	?>
 		<div class="row">
 			<div class="col">
-				<div class="judul-hasil-perhitungan mt-3">
-					<h3>Hasil Perhitungan</h3>	
+				<div class="judul-hasil-perhitungan mt-3 mb-2 d-flex justify-content-between">
+					<h3>Hasil Perhitungan</h3>
+					<div>
+						<button type="button" 
+		      	data-bs-toggle="modal" 
+		      	data-bs-target="#resetHasil" 
+		      	class="btn btn-outline-secondary btn-sm">Reset Hasil</button>	
+					</div>
 				</div>
 				<div class="hasil">
 					<table class="table">
@@ -71,7 +77,7 @@
 						      <td><?= $data['ip_awal']; ?></td>
 						      <td><?= $data['ip_akhir']; ?></td>
 						      <td><?= $data['broadcast']; ?></td>
-						      <td><?= $data['prefix']; ?></td>
+						      <td><?= '/'. $data['prefix']; ?></td>
 						      <td><?= $data['subnetmask']; ?></td>
 						    </tr>
 						  <?php  
@@ -90,14 +96,6 @@
 				</div>
 				<div class="net-ID">
 					<table class="table">
-					  <thead>
-					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">Nama Bagian</th>
-					      <th scope="col">Network</th>
-					      <th scope="col">Prefix</th>
-					    </tr>
-					  </thead>
 					  <tbody>
 					  	<?php  
 					  		$no = 0;
@@ -108,7 +106,7 @@
 						      <td><?= $no; ?></td>
 						      <td><?= $data['nama_divisi']; ?></td>
 						      <td><?= $data['network']; ?></td>
-						      <td><?= $data['prefix']; ?></td>
+						      <td><?= '/'. $data['prefix']; ?></td>
 						    </tr>
 						  <?php  
 						  	endwhile;
@@ -126,15 +124,6 @@
 				</div>
 				<div class="range-ID">
 					<table class="table">
-					  <thead>
-					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">Nama Bagian</th>
-					      <th scope="col">IP Awal</th>
-					      <th scope="col">IP Akhir</th>
-					      <th scope="col">Prefix</th>
-					    </tr>
-					  </thead>
 					  <tbody>
 					  	<?php  
 					  		$no = 0;
@@ -146,7 +135,7 @@
 						      <td><?= $data['nama_divisi']; ?></td>
 						      <td><?= $data['ip_awal']; ?></td>
 						      <td><?= $data['ip_akhir']; ?></td>
-						      <td><?= $data['prefix']; ?></td>
+						      <td><?= '/'. $data['prefix']; ?></td>
 						    </tr>
 						  <?php  
 						  	endwhile;
@@ -164,14 +153,6 @@
 				</div>
 				<div class="broadcast-ID">
 					<table class="table">
-					  <thead>
-					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">Nama Bagian</th>
-					      <th scope="col">Broadcast</th>
-					      <th scope="col">Prefix</th>
-					    </tr>
-					  </thead>
 					  <tbody>
 					  	<?php  
 					  		$no = 0;
@@ -182,7 +163,7 @@
 						    	<td><?= $no; ?></td>
 						      <td><?= $data['nama_divisi']; ?></td>
 						      <td><?= $data['broadcast']; ?></td>
-						      <td><?= $data['prefix']; ?></td>
+						      <td><?= '/'. $data['prefix']; ?></td>
 						    </tr>
 						  <?php  
 						  	endwhile;
@@ -198,3 +179,22 @@
 	
 	<br><br><br><br>
 </div>
+
+	<!-- Modal reset hasil -->
+	<div class="modal fade" id="resetHasil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="exampleModalLabel">Reset hasil perhitungan</h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	      	Yakin ingin meresetnya? semua hasil perhitungan akan terhapus semua
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+	        <a href="proses/host_network_proses.php?proses=reset_hasil" class="btn btn-outline-secondary">Reset Hasil</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>

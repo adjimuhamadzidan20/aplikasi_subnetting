@@ -1,4 +1,5 @@
-<?php  
+<?php
+	session_start();  
 	require 'koneksi_database.php';
 
 	if (isset($_GET['proses'])) {
@@ -8,6 +9,8 @@
 			$jumlah = mysqli_num_rows($returnNet);
 
 			if ($jumlah == 1) {
+				$_SESSION['status'] = 'warning';
+				$_SESSION['pesan'] = 'IP Network hanya boleh terdapat 1 data!';
 				header('Location: ../index.php?hal=ip_network');
 				exit;
 			} 
@@ -18,8 +21,20 @@
 				$query = "INSERT INTO tb_network VALUES ('', '$alamatIp', '$slashIp')";
 				$return = mysqli_query($conn, $query);
 
-				header('Location: ../index.php?hal=ip_network');
-				exit;
+				if ($return) {
+					$_SESSION['status'] = 'success';
+					$_SESSION['pesan'] = 'IP Network berhasil ditambahkan!';
+
+					header('Location: ../index.php?hal=ip_network');
+					exit;
+				} 
+				else {
+					$_SESSION['status'] = 'danger';
+					$_SESSION['pesan'] = 'IP Network gagal ditambahkan!';
+
+					header('Location: ../index.php?hal=ip_network');
+					exit;
+				}
 			}
 		} 
 		else if ($_GET['proses'] == 'hapus') {
@@ -28,8 +43,20 @@
 			$query = "DELETE FROM tb_network WHERE id = '$id'";
 			$return = mysqli_query($conn, $query);
 
-			header('Location: ../index.php?hal=ip_network');
-			exit;
+			if ($return) {
+				$_SESSION['status'] = 'success';
+				$_SESSION['pesan'] = 'IP Network berhasil terhapus!';
+
+				header('Location: ../index.php?hal=ip_network');
+				exit;
+			} 
+			else {
+				$_SESSION['status'] = 'danger';
+				$_SESSION['pesan'] = 'IP Network gagal terhapus!';
+
+				header('Location: ../index.php?hal=ip_network');
+				exit;
+			}	
 		}
 	}
 

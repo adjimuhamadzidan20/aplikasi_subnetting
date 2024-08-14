@@ -9,6 +9,9 @@
 		else if ($_GET['hal'] == 'hasil') {
 			include 'halaman/hasil.php';
 		}
+		else if ($_GET['hal'] == 'tentang') {
+			include 'halaman/tentang.php';
+		}
 	} 
 	else {
 		include 'halaman/ip_network.php';

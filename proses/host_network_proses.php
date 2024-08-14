@@ -1,4 +1,5 @@
 <?php  
+	session_start();
 	require 'koneksi_database.php';
 
 	if (isset($_GET['proses'])) {
@@ -9,8 +10,20 @@
 			$query = "INSERT INTO tb_host VALUES ('', '$bagianAlamat', '$hostIp')";
 			$return = mysqli_query($conn, $query);
 
-			header('Location: ../index.php?hal=host_network');
-			exit;
+			if ($return) {
+				$_SESSION['status'] = 'success';
+				$_SESSION['pesan'] = 'Host Network berhasil ditambahkan!';
+
+				header('Location: ../index.php?hal=host_network');
+				exit;
+			}
+			else {
+				$_SESSION['status'] = 'danger';
+				$_SESSION['pesan'] = 'Host Network gagal ditambahkan!';
+
+				header('Location: ../index.php?hal=host_network');
+				exit;
+			}
 		}
 		else if ($_GET['proses'] == 'hapus') {
 			$id = $_GET['id'];
@@ -18,17 +31,43 @@
 			$query = "DELETE FROM tb_host WHERE id = '$id'";
 			$return = mysqli_query($conn, $query);
 
-			header('Location: ../index.php?hal=host_network');
-			exit;
+			if ($return) {
+				$_SESSION['status'] = 'success';
+				$_SESSION['pesan'] = 'Host Network berhasil terhapus!';
+
+				header('Location: ../index.php?hal=host_network');
+				exit;
+			}
+			else {
+				$_SESSION['status'] = 'danger';
+				$_SESSION['pesan'] = 'Host Network gagal terhapus!';
+
+				header('Location: ../index.php?hal=host_network');
+				exit;
+			}
 		}
 		else if ($_GET['proses'] == 'edit') {
-			$id = $_GET['id'];
+			$id = $_POST['id'];
+			$bagianAlamat = htmlspecialchars($_POST['bagian']);
+			$hostIp = htmlspecialchars($_POST['host']);
 
-			$query = "DELETE FROM tb_host WHERE id = '$id'";
+			$query = "UPDATE tb_host SET nama_divisi = '$bagianAlamat', jumlah_host = '$hostIp' WHERE id = '$id'";
 			$return = mysqli_query($conn, $query);
 
-			header('Location: ../index.php?hal=host_network');
-			exit;
+			if ($return) {
+				$_SESSION['status'] = 'success';
+				$_SESSION['pesan'] = 'Host Network berhasil terubah!';
+
+				header('Location: ../index.php?hal=host_network');
+				exit;
+			} 
+			else {
+				$_SESSION['status'] = 'danger';
+				$_SESSION['pesan'] = 'Host Network gagal terubah!';
+
+				header('Location: ../index.php?hal=host_network');
+				exit;
+			}
 		} 
 		else if ($_GET['proses'] == 'generate') {
 			// range / rentang host
@@ -38,6 +77,7 @@
 			// jika host >= 28 dan <= 58 = /26 -> 64
 			// jika host >= 58 dan <= 128 = /25 -> 128
 
+			// menggunakan rumus VLSM
 			// range prefix
 			$prefix_25 = 25;
 			$prefix_26 = 26;
@@ -133,6 +173,13 @@
 	    header('Location: ../index.php?hal=hasil');
 			exit;
 		} 
+		else if ($_GET['proses'] == 'reset_hasil') {
+			$query = "TRUNCATE TABLE tb_hasil";
+			mysqli_query($conn, $query);
+
+			header('Location: ../index.php?hal=hasil');
+			exit;
+		}
 	}
 
 ?>
