@@ -7,16 +7,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.php?hal=ip_network">IP Network</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?hal=host_network">Host Network</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?hal=hasil">Hasil Perhitungan</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?hal=tentang">Tentang</a>
+          <a class="nav-link" href="index.php?hal=tentang">Logout</a>
         </li>
       </ul>
     </div>

@@ -7,10 +7,13 @@
 			include 'halaman/host_network.php';
 		}
 		else if ($_GET['hal'] == 'hasil') {
-			include 'halaman/hasil.php';
+			include 'halaman/hasil_perhitungan.php';
 		}
 		else if ($_GET['hal'] == 'tentang') {
 			include 'halaman/tentang.php';
+		}
+		else if ($_GET['hal'] == 'penggunaan') {
+			include 'halaman/cara_penggunaan.php';
 		}
 	} 
 	else {
