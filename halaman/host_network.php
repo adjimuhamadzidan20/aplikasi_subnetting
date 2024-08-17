@@ -13,7 +13,6 @@
 	while ($row = mysqli_fetch_assoc($returnHost)) {
 		$dataHost[] = $row;
 	}
-
 ?>
 
 <div class="judul my-3">
@@ -58,7 +57,7 @@
 	endif;
 ?>
 
-<div class="ip">
+<div class="tabel-host-network mb-5">
 	<table class="table">
 	  <thead>
 	    <tr>
@@ -118,7 +117,6 @@
 	  </tbody>
 	</table>
 </div>
-<br>
 
 <!-- Modal edit -->
 <div class="modal fade" id="editHost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

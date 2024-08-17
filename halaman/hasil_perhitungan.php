@@ -41,10 +41,7 @@
 		<div class="col">
 			<div class="judul-hasil-perhitungan mt-3 mb-3 d-flex justify-content-between">
 				<h3>Hasil Perhitungan</h3>
-				<div>
-	      	<a href="proses/cetak_hasil.php?proses=cetak_pdf" class="btn btn-outline-info btn-sm">Cetak PDF</a>
-	      	<a href="proses/cetak_hasil.php?proses=cetak_excel" class="btn btn-outline-info btn-sm">Cetak Excel</a>	
-
+				<div class="reset-hasil">	
 	      	<button type="button" 
 	      	data-bs-toggle="modal" 
 	      	data-bs-target="#resetHasil" 
@@ -78,8 +75,6 @@
 <?php  
 	} 
 ?>
-
-<br><br><br><br>
 
 <!-- Modal reset hasil -->
 <div class="modal fade" id="resetHasil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

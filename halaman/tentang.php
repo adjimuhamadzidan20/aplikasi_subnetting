@@ -7,4 +7,3 @@
 	
 	<p>Pada metode VLSM subnetting yang digunakan berdasarkan jumlah host, sehingga akan semakin banyak jaringan yang akan dipisahkan. Tahapan perhitungan menggunakan VLSM IP Address yang ada dihitung menggunakan CIDR selanjutnya baru dipecah kembali menggunakan VLSM. Maka setelah dilakukan perhitungan maka dapat dilihat subnet yang telah dipecah maka akan menjadi beberapa subnet lagi dengan mengganti subnetnya.</p>
 </div>
-<br>

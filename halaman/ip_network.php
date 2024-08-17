@@ -14,7 +14,7 @@
 <div class="judul my-3">
 	<h3>IP Jaringan</h3>	
 </div>
-<div class="tambah-ip mb-4">
+<div class="tambah-ip mb-3">
 	<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahIP">Tambah IP Jaringan</button>
 </div>
 
@@ -31,7 +31,8 @@
 	endif;
 ?>
 
-<div class="ip">
+<span class="text-secondary" style="font-size: 12px;"><i>*Note : IP Network tidak bisa dimasukkan lebih dari 1 data</i></span>
+<div class="tabel-ip-network">
 	<table class="table">
 	  <thead>
 	    <tr>
@@ -81,7 +82,6 @@
 	  </tbody>
 	</table>
 </div>
-<br>
 
 <!-- Modal tambah -->
 <div class="modal fade" id="tambahIP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,7 +100,6 @@
 				  <div class="mb-3">
 				  	<label for="slash_ip" class="form-label">Slash IP</label>
 				  	<input type="text" class="form-control" placeholder="Masukkan Slash IP" name="slash_ip" id="slash_ip" required>
-				  	<span class="text-secondary" style="font-size: 12px;"><i>*IP Network tidak bisa dimasukkan lebih dari 1</i></span>
 				  </div>
       	</div>
 	      <div class="modal-footer">
