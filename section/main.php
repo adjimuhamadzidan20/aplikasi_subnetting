@@ -19,5 +19,4 @@
 	else {
 		include 'halaman/ip_network.php';
 	}
-
 ?>

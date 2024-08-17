@@ -9,20 +9,19 @@
 	$jumlahData = mysqli_num_rows($returnHasil);
 
 	// data net
-	$queryNetID = "SELECT tb_hasil.id, tb_host.nama_divisi, tb_hasil.network, tb_hasil.prefix 
-	FROM tb_hasil INNER JOIN tb_host ON tb_hasil.id_host = tb_host.id";
+	$queryNetID = "SELECT tb_hasil.id, tb_host.nama_divisi, tb_host.jumlah_host, tb_hasil.network, tb_hasil.prefix FROM tb_hasil 
+	INNER JOIN tb_host ON tb_hasil.id_host = tb_host.id";
 	$returnNetID = mysqli_query($conn, $queryNetID);
 
 	// data range
-	$queryRangeID = "SELECT tb_hasil.id, tb_host.nama_divisi, tb_hasil.ip_awal, 
+	$queryRangeID = "SELECT tb_hasil.id, tb_host.nama_divisi, tb_host.jumlah_host, tb_hasil.ip_awal, 
 	tb_hasil.ip_akhir, tb_hasil.prefix FROM tb_hasil INNER JOIN tb_host ON tb_hasil.id_host = tb_host.id";
 	$returnRangeID = mysqli_query($conn, $queryRangeID);
 
 	// data broadcast
-	$queryBroadID = "SELECT tb_hasil.id, tb_host.nama_divisi, tb_hasil.broadcast, 
+	$queryBroadID = "SELECT tb_hasil.id, tb_host.nama_divisi, tb_host.jumlah_host, tb_hasil.broadcast, 
 	tb_hasil.prefix FROM tb_hasil INNER JOIN tb_host ON tb_hasil.id_host = tb_host.id";
 	$returnBroadID = mysqli_query($conn, $queryBroadID);
-
 ?>
 
 <?php  
@@ -43,52 +42,36 @@
 			<div class="judul-hasil-perhitungan mt-3 mb-3 d-flex justify-content-between">
 				<h3>Hasil Perhitungan</h3>
 				<div>
-	      	<a href="proses/cetak_hasil.php?proses=cetak_pdf" class="btn btn-outline-secondary btn-sm">Cetak PDF</a>
-	      	<a href="proses/cetak_hasil.php?proses=cetak_excel" class="btn btn-outline-secondary btn-sm">Cetak Excel</a>	
+	      	<a href="proses/cetak_hasil.php?proses=cetak_pdf" class="btn btn-outline-info btn-sm">Cetak PDF</a>
+	      	<a href="proses/cetak_hasil.php?proses=cetak_excel" class="btn btn-outline-info btn-sm">Cetak Excel</a>	
 
 	      	<button type="button" 
 	      	data-bs-toggle="modal" 
 	      	data-bs-target="#resetHasil" 
-	      	class="btn btn-outline-secondary btn-sm">Reset Hasil</button>
+	      	class="btn btn-outline-info btn-sm">Reset Hasil</button>
 				</div>
 			</div>
+
+			<?php include 'section/active_hasil.php'; ?>
+			
+			<div class="pilihan-hasil mb-3">
+				<ul class="nav nav-pills nav-justified rounded border">
+				  <li class="nav-item">
+				    <a class="nav-link text-dark <?= $active1; ?>" aria-current="page" href="index.php?hal=hasil&hasil=semua">Semua</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link text-dark <?= $active2; ?>" href="index.php?hal=hasil&hasil=net_id">NetID</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link text-dark <?= $active3; ?>" href="index.php?hal=hasil&hasil=range_id">RangeID</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link text-dark <?= $active4; ?>" href="index.php?hal=hasil&hasil=broad_id">BroadcastID</a>
+				  </li>
+				</ul>
+			</div>
 			<div class="hasil">
-				<table class="table">
-				  <thead>
-				    <tr>
-				      <th scope="col">No</th>
-				      <th scope="col">Nama Divisi</th>
-				      <th scope="col">Host</th>
-				      <th scope="col">Network</th>
-				      <th scope="col">IP Awal</th>
-				      <th scope="col">IP Akhir</th>
-				      <th scope="col">Broadcast</th>
-				      <th scope="col">Prefix</th>
-				      <th scope="col">Subnetmask</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				  	<?php  
-				  		$no = 0;
-				  		while ($data = mysqli_fetch_assoc($returnHasil)) : 
-				  		$no++;
-				  	?>
-					    <tr>
-					      <td><?= $no; ?></td>
-					      <td><?= $data['nama_divisi']; ?></td>
-					      <td><?= $data['jumlah_host']; ?></td>
-					      <td><?= $data['network']; ?></td>
-					      <td><?= $data['ip_awal']; ?></td>
-					      <td><?= $data['ip_akhir']; ?></td>
-					      <td><?= $data['broadcast']; ?></td>
-					      <td><?= '/'. $data['prefix']; ?></td>
-					      <td><?= $data['subnetmask']; ?></td>
-					    </tr>
-					  <?php  
-					  	endwhile;
-					  ?>
-				  </tbody>
-				</table>
+				<?php include 'section/hasil.php'; ?>
 			</div>
 		</div>	
 	</div>
@@ -111,7 +94,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-        <a href="proses/host_network_proses.php?proses=reset_hasil" class="btn btn-outline-secondary">Reset Hasil</a>
+        <a href="proses/host_network_proses.php?proses=reset_hasil" class="btn btn-outline-info">Reset Hasil</a>
       </div>
     </div>
   </div>

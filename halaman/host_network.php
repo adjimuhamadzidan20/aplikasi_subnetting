@@ -1,5 +1,4 @@
 <?php  
-	session_start();
 	require 'proses/koneksi_database.php';
 
 	$alamatIp = "SELECT alamat_ip, slash FROM tb_network";
@@ -18,7 +17,7 @@
 ?>
 
 <div class="judul my-3">
-	<h3>Host Network</h3>	
+	<h3>Host Jaringan</h3>	
 </div>
 <div class="input-ip mb-4">
 	<div class="row mb-3">
@@ -39,9 +38,9 @@
 	</div>
   <div class="row">
   	<div class="col d-flex justify-content-between">
-  		<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#tambahHost">
-  		Tambah Host Network</button>
-  		<a href="proses/host_network_proses.php?proses=generate" class="btn btn-outline-secondary">Generate</a>
+  		<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahHost">
+  		Tambah Host Jaringan</button>
+  		<a href="proses/host_network_proses.php?proses=generate" class="btn btn-outline-info">Generate</a>
   	</div>
   </div>
 </div>
@@ -80,7 +79,7 @@
 		      <td><?= $host['nama_divisi']; ?></td>
 		      <td><?= $host['jumlah_host']; ?></td>
 		      <td>
-		      	<button type="button" class="btn btn-outline-secondary btn-sm" 
+		      	<button type="button" class="btn btn-outline-info btn-sm" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#editHost"
 		      	data-id="<?= $host['id']; ?>" 
@@ -90,7 +89,7 @@
 		      	<button type="button" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#hapusHost<?= $host['id']; ?>" 
-		      	class="btn btn-outline-secondary btn-sm">Hapus</button>
+		      	class="btn btn-outline-info btn-sm">Hapus</button>
 
 		      	<!-- Modal hapus -->
 						<div class="modal fade" id="hapusHost<?= $host['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -105,7 +104,7 @@
 						      </div>
 						      <div class="modal-footer">
 							        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-							        <a href="proses/host_network_proses.php?proses=hapus&id=<?= $host['id']; ?>" class="btn btn-outline-secondary">Hapus</a>
+							        <a href="proses/host_network_proses.php?proses=hapus&id=<?= $host['id']; ?>" class="btn btn-outline-info">Hapus</a>
 							      </div>
 						    </div>
 						  </div>
@@ -126,7 +125,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Host Network</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Host Jaringan</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="proses/host_network_proses.php?proses=edit" method="post">
@@ -143,7 +142,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <button type="submit" class="btn btn-outline-secondary">Edit</button>
+	        <button type="submit" class="btn btn-outline-info">Edit</button>
 	      </div>
       </form>
     </div>
@@ -155,7 +154,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Host Network</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Host Jaringan</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="proses/host_network_proses.php?proses=tambah" method="post">
@@ -171,7 +170,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <button type="submit" class="btn btn-outline-secondary">Simpan</button>
+	        <button type="submit" class="btn btn-outline-info">Simpan</button>
 	      </div>
       </form>
     </div>

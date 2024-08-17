@@ -1,48 +1,10 @@
-<?php  
-	if (@$_GET['hal'] == 'ip_network') {
-		$active1 ='active';
-		$active2 ='';
-		$active3 ='';
-		$active4 ='';
-		$active5 ='';
-	} 
-	else if (@$_GET['hal'] == 'host_network') {
-		$active1 ='';
-		$active2 ='active';
-		$active3 ='';
-		$active4 ='';
-		$active5 ='';
-	}
-	else if (@$_GET['hal'] == 'hasil') {
-		$active1 ='';
-		$active2 ='';
-		$active3 ='active';
-		$active4 ='';
-		$active5 ='';
-	}
-	else if (@$_GET['hal'] == 'tentang' && @$_GET['link'] == 'dropdown') {
-		$active1 ='';
-		$active2 ='';
-		$active3 ='';
-		$active4 ='active';
-		$active5 ='';
-		$active6 ='active';
-	} 
-	else if (@$_GET['hal'] == 'penggunaan' && @$_GET['link'] == 'dropdown') {
-		$active1 ='';
-		$active2 ='';
-		$active3 ='';
-		$active4 ='';
-		$active5 ='active';
-		$active6 ='active';
-	} 
-	else {
-		$active1 ='active';
-		$active2 ='';
-		$active3 ='';
-		$active4 ='';
-		$active5 ='';
-	}
+<?php
+	session_start();
+
+	if (!isset($_SESSION['login'])) {
+    header('Location: login.php');
+    exit;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -55,16 +17,19 @@
 </head>
 <body>
 	
-	<?php include 'section/header.php'; ?>
+	<?php 
+		include 'section/active_hal.php';
+		include 'section/header.php'; 
+	?>
 
 	<main>
 		<div class="container">
 			<ul class="nav nav-tabs mt-3">
 			  <li class="nav-item">
-			    <a style="color: black;" class="nav-link <?= $active1; ?>" aria-current="page" href="index.php?hal=ip_network">IP Network</a>
+			    <a style="color: black;" class="nav-link <?= $active1; ?>" aria-current="page" href="index.php?hal=ip_network">IP Jaringan</a>
 			  </li>
 			  <li class="nav-item">
-			    <a style="color: black;" class="nav-link <?= $active2; ?>" aria-current="page" href="index.php?hal=host_network">Host Network</a>
+			    <a style="color: black;" class="nav-link <?= $active2; ?>" aria-current="page" href="index.php?hal=host_network">Host Jaringan</a>
 			  </li>
 			  <li class="nav-item">
 			    <a style="color: black;" class="nav-link <?= $active3; ?>" aria-current="page" href="index.php?hal=hasil">Hasil Perhitungan</a>

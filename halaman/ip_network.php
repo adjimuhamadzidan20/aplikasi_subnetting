@@ -1,5 +1,4 @@
 <?php  
-	session_start();
 	require 'proses/koneksi_database.php';
 
 	$query = "SELECT * FROM tb_network";
@@ -13,10 +12,10 @@
 ?>
 
 <div class="judul my-3">
-	<h3>IP Network</h3>	
+	<h3>IP Jaringan</h3>	
 </div>
 <div class="tambah-ip mb-4">
-	<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#tambahIP">Tambah IP Network</button>
+	<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahIP">Tambah IP Jaringan</button>
 </div>
 
 <?php  
@@ -52,7 +51,7 @@
 		      	<button type="button" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#hapusNet<?= $ip['id']; ?>" 
-		      	class="btn btn-outline-secondary btn-sm">Hapus</button>
+		      	class="btn btn-outline-info btn-sm">Hapus</button>
 
 		      	<!-- Modal hapus -->
 						<div class="modal fade" id="hapusNet<?= $ip['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" 
@@ -68,7 +67,7 @@
 						      </div>
 						      <div class="modal-footer">
 							        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-							        <a href="proses/ip_network_proses.php?proses=hapus&id=<?= $ip['id']; ?>" class="btn btn-outline-secondary">Hapus</a>
+							        <a href="proses/ip_network_proses.php?proses=hapus&id=<?= $ip['id']; ?>" class="btn btn-outline-info">Hapus</a>
 							      </div>
 						    </div>
 						  </div>
@@ -89,7 +88,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah IP Network</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah IP Jaringan</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="proses/ip_network_proses.php?proses=tambah" method="post">
@@ -106,7 +105,7 @@
       	</div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <button type="submit" class="btn btn-outline-secondary">Simpan</button>
+	        <button type="submit" class="btn btn-outline-info">Simpan</button>
 	      </div>
       </form>
     </div>
