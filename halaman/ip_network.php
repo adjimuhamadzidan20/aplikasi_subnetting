@@ -8,22 +8,20 @@
 	while ($row = mysqli_fetch_assoc($return)) {
 		$data[] = $row;
 	}
-
 ?>
 
-<div class="judul my-3">
+<div class="judul-ip-network my-3">
 	<h3>IP Jaringan</h3>	
 </div>
-<div class="tambah-ip mb-3">
-	<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahIP">Tambah IP Jaringan</button>
+<div class="tambah-ip-network mb-3">
+	<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tambahIP">Tambah IP Jaringan</button>
 </div>
 
 <?php  
 	if (isset($_SESSION['status']) && isset($_SESSION['pesan'])) :
 ?>
-	<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert">
+	<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert" id="notif">
 	  <?= $_SESSION['pesan']; ?>
-	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 <?php
 	unset($_SESSION['status']);  
@@ -52,7 +50,7 @@
 		      	<button type="button" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#hapusNet<?= $ip['id']; ?>" 
-		      	class="btn btn-outline-info btn-sm">Hapus</button>
+		      	class="btn btn-outline-success btn-sm">Hapus</button>
 
 		      	<!-- Modal hapus -->
 						<div class="modal fade" id="hapusNet<?= $ip['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" 
@@ -68,7 +66,8 @@
 						      </div>
 						      <div class="modal-footer">
 							        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-							        <a href="proses/ip_network_proses.php?proses=hapus&id=<?= $ip['id']; ?>" class="btn btn-outline-info">Hapus</a>
+							        <a href="proses/ip_network_proses.php?proses=hapus&id=<?= $ip['id']; ?>" class="btn btn-outline-success">
+							        Hapus</a>
 							      </div>
 						    </div>
 						  </div>
@@ -104,7 +103,7 @@
       	</div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <button type="submit" class="btn btn-outline-info">Simpan</button>
+	        <button type="submit" class="btn btn-outline-success">Simpan</button>
 	      </div>
       </form>
     </div>

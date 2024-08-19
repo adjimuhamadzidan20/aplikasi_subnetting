@@ -17,7 +17,7 @@
 	<style>
 		.login-form {
 			width: 30%;
-			padding: 50px 25px 35px 25px;
+			padding: 50px 23px 35px 23px;
 			margin-top: 6rem;
 			border: 1px solid lightgrey;
 			border-radius: 8px;
@@ -41,9 +41,8 @@
 				<?php  
 					if (isset($_SESSION['status']) && isset($_SESSION['pesan'])) :
 				?>
-					<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert">
+					<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert" id="notif">
 					  <?= $_SESSION['pesan']; ?>
-					  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 					</div>
 				<?php
 					unset($_SESSION['status']);  
@@ -58,7 +57,7 @@
 					<div class="mb-4">
 					  <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
 					</div>
-					<button type="submit" class="btn btn-outline-info w-100" data-bs-dismiss="alert" aria-label="Close">Masuk</button>
+					<button type="submit" class="btn btn-outline-success w-100" data-bs-dismiss="alert" aria-label="Close">Masuk</button>
 				</form>
 			</div>
 		</div>
@@ -66,6 +65,19 @@
 
 	<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="jquery/jquery-3.7.1.js"></script>
+
+	<script type="text/javascript">
+    let popup = document.getElementById('notif');
+    if (popup.style.display = 'block') {
+      setTimeout(function() {
+        popup.style.opacity = '0'
+        popup.style.transition = 'opacity 1s ease-in-out';
+        setTimeout(function() {
+            popup.style.display = 'none';
+        }, 1000)
+      }, 1000);
+    }
+  </script>
 
 </body>
 </html>

@@ -14,6 +14,9 @@
 		}
 		else if ($_GET['hal'] == 'penggunaan') {
 			include 'halaman/cara_penggunaan.php';
+		} 
+		else {
+			include 'halaman/error_404.php';
 		}
 	} 
 	else {

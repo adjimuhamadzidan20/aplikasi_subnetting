@@ -45,7 +45,7 @@
 	      	<button type="button" 
 	      	data-bs-toggle="modal" 
 	      	data-bs-target="#resetHasil" 
-	      	class="btn btn-outline-info btn-sm">Reset Hasil</button>
+	      	class="btn btn-outline-success btn-sm">Reset Hasil</button>
 				</div>
 			</div>
 
@@ -89,7 +89,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-        <a href="proses/host_network_proses.php?proses=reset_hasil" class="btn btn-outline-info">Reset Hasil</a>
+        <a href="proses/host_network_proses.php?proses=reset_hasil" class="btn btn-outline-success">Reset Hasil</a>
       </div>
     </div>
   </div>

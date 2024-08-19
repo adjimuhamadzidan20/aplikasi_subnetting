@@ -67,8 +67,42 @@
 	    modal.find('#bagian').val(bagian)
 	    modal.find('#host').val(host)
 	  })
-
 	</script>
+
+	<script type="text/javascript">
+    let popup = document.getElementById('notif');
+    if (popup.style.display = 'block') {
+      setTimeout(function() {
+        popup.style.opacity = '0'
+        popup.style.transition = 'opacity 1s ease-in-out';
+        setTimeout(function() {
+            popup.style.display = 'none';
+        }, 1000)
+      }, 1000);
+    }
+  </script>
+
+  <script type="text/javascript">
+  	// mengambil/memanggil button check
+		let check = document.getElementById('generate');
+		check.addEventListener('click', (e) => {
+		    if(true) {
+		        // memanggil & menampilkan loading button
+		        let loadingbtn = document.getElementById('button-cek');
+		        loadingbtn.style.display = 'block';
+
+		        // mengganti & menyembunyikan button check
+		        let check =  document.getElementById('generate');
+		        // check.innerHTML = loadingbtn;
+		        check.style.display = 'none';
+		        
+		        setTimeout(function hasil() { 
+		        	document.location.href = 'proses/host_network_proses.php?proses=generate';
+		        }, 900);
+		    }
+		    e.preventDefault();
+		});
+  </script>
 
 </body>
 </html>

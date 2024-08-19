@@ -15,21 +15,19 @@
 	}
 ?>
 
-<div class="judul my-3">
+<div class="judul-host-network my-3">
 	<h3>Host Jaringan</h3>	
 </div>
-<div class="input-ip mb-4">
-	<div class="row mb-3">
+<div class="input-host-network mb-4">
+	<div class="row mb-2">
 		<div class="col-5">
 			<div class="mb-2">
-				<label class="form-label">Alamat IP</label>
-				<input type="text" class="form-control mb-2 text-muted" 
+				<input type="text" class="form-control mb-2 text-muted w-50" 
 				value="<?php $check = $jumlahData == 0 ? 'IP Network belum tersedia' : $dataIp['alamat_ip']; echo $check; ?>" 
 				style="cursor: pointer; font-style: italic;" readonly>
 			</div>
 			<div class="mb-2">
-				<label class="form-label">Slash IP</label>
-				<input type="text" class="form-control mb-2 text-muted" 
+				<input type="text" class="form-control mb-2 text-muted w-50" 
 				value="<?php $check = $jumlahData == 0 ? 'Slash Network belum tersedia' : $dataIp['slash']; echo $check; ?>"
 				style="cursor: pointer; font-style: italic;" readonly>
 			</div>
@@ -37,9 +35,17 @@
 	</div>
   <div class="row">
   	<div class="col d-flex justify-content-between">
-  		<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#tambahHost">
+  		<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tambahHost">
   		Tambah Host Jaringan</button>
-  		<a href="proses/host_network_proses.php?proses=generate" class="btn btn-outline-info">Generate</a>
+
+  		<!-- button proses setelah mengklik button check -->
+  		<div class="tombol-generate">
+	      <button class="btn btn-success mx-auto" type="button" id="button-cek" style="display: none;">
+	        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+	        Generate
+	      </button>
+	  		<button type="button" class="btn btn-outline-success" id="generate">Generate</button>
+  		</div>
   	</div>
   </div>
 </div>
@@ -47,9 +53,8 @@
 <?php  
 	if (isset($_SESSION['status']) && isset($_SESSION['pesan'])) :
 ?>
-	<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert">
+	<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert" id="notif">
 	  <?= $_SESSION['pesan']; ?>
-	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 <?php
 	unset($_SESSION['status']);  
@@ -78,7 +83,7 @@
 		      <td><?= $host['nama_divisi']; ?></td>
 		      <td><?= $host['jumlah_host']; ?></td>
 		      <td>
-		      	<button type="button" class="btn btn-outline-info btn-sm" 
+		      	<button type="button" class="btn btn-outline-success btn-sm" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#editHost"
 		      	data-id="<?= $host['id']; ?>" 
@@ -88,7 +93,7 @@
 		      	<button type="button" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#hapusHost<?= $host['id']; ?>" 
-		      	class="btn btn-outline-info btn-sm">Hapus</button>
+		      	class="btn btn-outline-success btn-sm">Hapus</button>
 
 		      	<!-- Modal hapus -->
 						<div class="modal fade" id="hapusHost<?= $host['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,7 +108,7 @@
 						      </div>
 						      <div class="modal-footer">
 							        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-							        <a href="proses/host_network_proses.php?proses=hapus&id=<?= $host['id']; ?>" class="btn btn-outline-info">Hapus</a>
+							        <a href="proses/host_network_proses.php?proses=hapus&id=<?= $host['id']; ?>" class="btn btn-outline-success">Hapus</a>
 							      </div>
 						    </div>
 						  </div>
@@ -140,7 +145,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <button type="submit" class="btn btn-outline-info">Edit</button>
+	        <button type="submit" class="btn btn-outline-success">Edit</button>
 	      </div>
       </form>
     </div>
@@ -168,7 +173,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <button type="submit" class="btn btn-outline-info">Simpan</button>
+	        <button type="submit" class="btn btn-outline-success">Simpan</button>
 	      </div>
       </form>
     </div>

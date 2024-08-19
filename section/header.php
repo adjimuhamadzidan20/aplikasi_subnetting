@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-info">
+<nav class="navbar navbar-expand-lg bg-success">
   <div class="container">
     <a class="navbar-brand text-white" style="font-weight: bold;">Hitung Subnetting</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
       </div>
       <div class="modal-footer">
 	        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-	        <a href="proses/logout_sistem.php" class="btn btn-outline-info">Logout</a>
+	        <a href="proses/logout_sistem.php" class="btn btn-outline-success">Logout</a>
 	      </div>
     </div>
   </div>
