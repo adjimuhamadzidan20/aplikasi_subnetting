@@ -20,22 +20,22 @@
 </div>
 <div class="input-host-network mb-4">
 	<div class="row mb-2">
-		<div class="col-5">
+		<div class="col-12 col-lg-4">
 			<div class="mb-2">
-				<input type="text" class="form-control mb-2 text-muted w-50" 
+				<input type="text" class="form-control mb-2 text-muted" 
 				value="<?php $check = $jumlahData == 0 ? 'IP Network belum tersedia' : $dataIp['alamat_ip']; echo $check; ?>" 
 				style="cursor: pointer; font-style: italic;" readonly>
 			</div>
 			<div class="mb-2">
-				<input type="text" class="form-control mb-2 text-muted w-50" 
+				<input type="text" class="form-control mb-2 text-muted" 
 				value="<?php $check = $jumlahData == 0 ? 'Slash Network belum tersedia' : $dataIp['slash']; echo $check; ?>"
 				style="cursor: pointer; font-style: italic;" readonly>
 			</div>
 		</div>
 	</div>
   <div class="row">
-  	<div class="col d-flex justify-content-between">
-  		<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tambahHost">
+  	<div class="col d-block d-sm-flex justify-content-sm-between">
+  		<button type="button" class="btn btn-outline-success mb-2 mb-sm-0" data-bs-toggle="modal" data-bs-target="#tambahHost">
   		Tambah Host Jaringan</button>
 
   		<!-- button proses setelah mengklik button check -->
@@ -62,7 +62,7 @@
 	endif;
 ?>
 
-<div class="tabel-host-network mb-5">
+<div class="tabel-host-network">
 	<table class="table">
 	  <thead>
 	    <tr>

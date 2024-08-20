@@ -14,7 +14,12 @@
 	<h3>IP Jaringan</h3>	
 </div>
 <div class="tambah-ip-network mb-3">
-	<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tambahIP">Tambah IP Jaringan</button>
+	<div class="row">
+		<div class="col">
+			<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tambahIP">
+			Tambah IP Jaringan</button>
+		</div>
+	</div>
 </div>
 
 <?php  
@@ -31,7 +36,7 @@
 
 <span class="text-secondary" style="font-size: 12px;"><i>*Note : IP Network tidak bisa dimasukkan lebih dari 1 data</i></span>
 <div class="tabel-ip-network">
-	<table class="table">
+	<table class="table table-responsive">
 	  <thead>
 	    <tr>
 	      <th scope="col">Alamat IP</th>

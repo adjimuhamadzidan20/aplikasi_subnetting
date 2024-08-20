@@ -16,9 +16,9 @@
 	<title>Hitung Subnetting</title>
 	<style>
 		.login-form {
-			width: 30%;
 			padding: 50px 23px 35px 23px;
 			margin-top: 6rem;
+			margin-bottom: 6rem;
 			border: 1px solid lightgrey;
 			border-radius: 8px;
 		}
@@ -26,39 +26,45 @@
 </head>
 <body>
 	
-	<?php 
-		include 'section/header.php'; 
-	?>
+	<nav class="navbar navbar-dark navbar-expand-lg bg-success">
+	  <div class="container">
+	    <a class="navbar-brand text-white" style="font-weight: bold;">Hitung Subnetting</a>
+	  </div>
+	</nav>
 
 	<main>
-		<div class="container d-flex justify-content-center">
-			<div class="login-form">
-				<div class="judul-login-form text-center mb-4">
-					<h5 class="text-uppercase">Login</h5>
-					<p class="text-muted">Masuk sebagai pengguna</p>
-				</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col col-md-8 col-lg-5 col-xl-4">
+					<div class="login-form">
+						<div class="judul-login-form text-center mb-4">
+							<h5 class="text-uppercase">Login</h5>
+							<p class="text-muted">Masuk sebagai pengguna</p>
+						</div>
 
-				<?php  
-					if (isset($_SESSION['status']) && isset($_SESSION['pesan'])) :
-				?>
-					<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert" id="notif">
-					  <?= $_SESSION['pesan']; ?>
+						<?php  
+							if (isset($_SESSION['status']) && isset($_SESSION['pesan'])) :
+						?>
+							<div class="alert small alert-<?= $_SESSION['status']; ?> alert-dismissible fade show" role="alert" id="notif">
+							  <?= $_SESSION['pesan']; ?>
+							</div>
+						<?php
+							unset($_SESSION['status']);  
+							unset($_SESSION['pesan']);  
+							endif;
+						?>
+						
+						<form action="proses/login_sistem.php?proses=login" method="post">
+							<div class="mb-3">
+							  <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
+							</div>
+							<div class="mb-4">
+							  <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+							</div>
+							<button type="submit" class="btn btn-outline-success w-100" data-bs-dismiss="alert" aria-label="Close">Masuk</button>
+						</form>
 					</div>
-				<?php
-					unset($_SESSION['status']);  
-					unset($_SESSION['pesan']);  
-					endif;
-				?>
-				
-				<form action="proses/login_sistem.php?proses=login" method="post">
-					<div class="mb-3">
-					  <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
-					</div>
-					<div class="mb-4">
-					  <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
-					</div>
-					<button type="submit" class="btn btn-outline-success w-100" data-bs-dismiss="alert" aria-label="Close">Masuk</button>
-				</form>
+				</div>
 			</div>
 		</div>
 	</main>
