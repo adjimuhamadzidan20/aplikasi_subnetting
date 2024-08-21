@@ -35,16 +35,16 @@
 	</div>
   <div class="row">
   	<div class="col d-block d-sm-flex justify-content-sm-between">
-  		<button type="button" class="btn btn-outline-success mb-2 mb-sm-0" data-bs-toggle="modal" data-bs-target="#tambahHost">
-  		Tambah Host Jaringan</button>
+  		<button type="button" class="btn btn-outline-success mb-2 mb-sm-0 tambah-host" data-bs-toggle="modal" 
+  		data-bs-target="#tambahHost">Tambah Host Jaringan</button>
 
   		<!-- button proses setelah mengklik button check -->
   		<div class="tombol-generate">
-	      <button class="btn btn-success mx-auto" type="button" id="button-cek" style="display: none;">
+	      <button class="btn btn-success mx-auto generate-load" type="button" id="button-cek" style="display: none;">
 	        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 	        Generate
 	      </button>
-	  		<button type="button" class="btn btn-outline-success" id="generate">Generate</button>
+	  		<button type="button" class="btn btn-outline-success generate" id="generate">Generate</button>
   		</div>
   	</div>
   </div>
@@ -62,14 +62,14 @@
 	endif;
 ?>
 
-<div class="tabel-host-network">
+<div class="tabel-host-network table-responsive">
 	<table class="table">
 	  <thead>
 	    <tr>
-	      <th scope="col">No</th>
-	      <th scope="col">Bagian/Divisi</th>
-	      <th scope="col">Jumlah Host</th>
-	      <th scope="col">Opsi</th>
+	      <th scope="col" nowrap="nowrap">No</th>
+	      <th scope="col" nowrap="nowrap">Bagian/Divisi</th>
+	      <th scope="col" nowrap="nowrap">Jumlah Host</th>
+	      <th scope="col" nowrap="nowrap">Opsi</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -82,7 +82,7 @@
 		      <td><?= $no; ?></td>
 		      <td><?= $host['nama_divisi']; ?></td>
 		      <td><?= $host['jumlah_host']; ?></td>
-		      <td>
+		      <td nowrap="nowrap">
 		      	<button type="button" class="btn btn-outline-success btn-sm" 
 		      	data-bs-toggle="modal" 
 		      	data-bs-target="#editHost"

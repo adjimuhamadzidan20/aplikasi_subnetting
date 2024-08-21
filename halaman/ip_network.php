@@ -16,7 +16,7 @@
 <div class="tambah-ip-network mb-3">
 	<div class="row">
 		<div class="col">
-			<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#tambahIP">
+			<button type="button" class="btn btn-outline-success tambah-ip" data-bs-toggle="modal" data-bs-target="#tambahIP">
 			Tambah IP Jaringan</button>
 		</div>
 	</div>
@@ -35,13 +35,13 @@
 ?>
 
 <span class="text-secondary" style="font-size: 12px;"><i>*Note : IP Network tidak bisa dimasukkan lebih dari 1 data</i></span>
-<div class="tabel-ip-network">
-	<table class="table table-responsive">
+<div class="tabel-ip-network table-responsive">
+	<table class="table">
 	  <thead>
 	    <tr>
-	      <th scope="col">Alamat IP</th>
-	      <th scope="col">Slash</th>
-	      <th scope="col">Opsi</th>
+	      <th scope="col" nowrap="nowrap">Alamat IP</th>
+	      <th scope="col" nowrap="nowrap">Slash</th>
+	      <th scope="col" nowrap="nowrap">Opsi</th>
 	    </tr>
 	  </thead>
 	  <tbody>

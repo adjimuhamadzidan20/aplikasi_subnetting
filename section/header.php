@@ -5,18 +5,37 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-        	<?php  
-        		if (isset($_SESSION['login'])) {
-        	?>
-        		<span class="nav-link text-white"><?= $_SESSION['nama_user']; ?> | <a class="text-white" data-bs-toggle="modal" 
-		      	data-bs-target="#logout" style="text-decoration: none; cursor: pointer;">Logout</a></span>
-          <?php  
-          	}
-          ?>
-        </li>
-      </ul>
+    	<?php  
+    		if (isset($_SESSION['login'])) {
+    	?>
+	      <ul class="navbar-nav">
+	        <li class="nav-item d-block d-sm-none">
+				    <a class="nav-link tab-menu text-white <?= $active1; ?>" aria-current="page" href="index.php?hal=ip_network">IP Jaringan</a>
+				  </li>
+				  <li class="nav-item d-block d-sm-none">
+				    <a class="nav-link tab-menu text-white <?= $active2; ?>" aria-current="page" href="index.php?hal=host_network">Host Jaringan</a>
+				  </li>
+				  <li class="nav-item d-block d-sm-none">
+				    <a class="nav-link tab-menu text-white <?= $active3; ?>" aria-current="page" href="index.php?hal=hasil">Hasil Perhitungan</a>
+				  </li>
+				  <li class="nav-item dropdown d-block d-sm-none">
+				    <a class="nav-link tab-menu dropdown-toggle <?= $active6; ?> text-white" data-bs-toggle="dropdown" role="button" aria-expanded="false">Lainnya</a>
+				    <ul class="dropdown-menu">
+				      <li>
+				      	<a class="dropdown-item <?= $active4; ?>" href="index.php?hal=tentang&link=dropdown">Tentang</a>
+				      <li>
+				      	<a class="dropdown-item <?= $active5; ?>" href="index.php?hal=penggunaan&link=dropdown">Cara Penggunaan</a>
+				      </li>
+				    </ul>
+				  </li>
+				  <li class="nav-item">
+	        	<span class="nav-link text-white"><?= $_SESSION['nama_user']; ?> | <a class="text-white" data-bs-toggle="modal" 
+			      data-bs-target="#logout" style="text-decoration: none; cursor: pointer;">Logout</a></span>
+	        </li>
+	      </ul>
+      <?php  
+        }
+      ?>	
     </div>
   </div>
 </nav>

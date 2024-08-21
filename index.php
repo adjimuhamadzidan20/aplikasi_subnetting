@@ -18,6 +18,17 @@
 		.tab-menu {
 			color: black;
 		}
+
+		@media screen and (max-width: 600px) {
+			.tambah-ip, .generate-load, .generate, .tambah-host {
+				width: 100%;
+			}
+			.cetak-pdf, .cetak-excel {
+				display: block;
+				width: 100%;
+				margin-bottom: 8px;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -29,17 +40,17 @@
 
 	<main>
 		<div class="container">
-			<ul class="nav nav-tabs mt-3">
-			  <li class="nav-item">
+			<ul class="nav nav-tabs mt-3 d-none d-sm-flex">
+			  <li class="nav-item d-none d-sm-block">
 			    <a class="nav-link tab-menu <?= $active1; ?>" aria-current="page" href="index.php?hal=ip_network">IP Jaringan</a>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item d-none d-sm-block">
 			    <a class="nav-link tab-menu <?= $active2; ?>" aria-current="page" href="index.php?hal=host_network">Host Jaringan</a>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item d-none d-sm-block">
 			    <a class="nav-link tab-menu <?= $active3; ?>" aria-current="page" href="index.php?hal=hasil">Hasil Perhitungan</a>
 			  </li>
-			  <li class="nav-item dropdown">
+			  <li class="nav-item dropdown d-none d-sm-block">
 			    <a class="nav-link tab-menu dropdown-toggle <?= $active6; ?>" data-bs-toggle="dropdown" role="button" aria-expanded="false">Lainnya</a>
 			    <ul class="dropdown-menu">
 			      <li>
