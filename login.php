@@ -55,7 +55,7 @@
 						?>
 						
 						<form action="proses/login_sistem.php?proses=login" method="post">
-							<div class="mb-3">
+							<div class="mb-2">
 							  <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
 							</div>
 							<div class="mb-4">
