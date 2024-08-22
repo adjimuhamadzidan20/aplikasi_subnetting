@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Agu 2024 pada 16.56
+-- Waktu pembuatan: 22 Agu 2024 pada 04.33
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.13
 
@@ -38,18 +38,6 @@ CREATE TABLE `tb_hasil` (
   `subnetmask` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `tb_hasil`
---
-
-INSERT INTO `tb_hasil` (`id`, `id_host`, `network`, `ip_awal`, `ip_akhir`, `broadcast`, `prefix`, `subnetmask`) VALUES
-(1, 1, '192.168.10.0', '192.168.10.1', '192.168.10.126', '192.168.10.127', 25, '255.255.255.128'),
-(2, 8, '192.168.10.128', '192.168.10.129', '192.168.10.158', '192.168.10.159', 27, '255.255.255.224'),
-(3, 18, '192.168.10.160', '192.168.10.161', '192.168.10.174', '192.168.10.175', 28, '255.255.255.240'),
-(4, 19, '192.168.10.176', '192.168.10.177', '192.168.10.190', '192.168.10.191', 28, '255.255.255.240'),
-(5, 17, '192.168.10.192', '192.168.10.193', '192.168.10.198', '192.168.10.199', 28, '255.255.255.248'),
-(6, 24, '192.168.10.200', '192.168.10.201', '192.168.10.206', '192.168.10.207', 29, '255.255.255.248');
-
 -- --------------------------------------------------------
 
 --
@@ -62,18 +50,6 @@ CREATE TABLE `tb_host` (
   `jumlah_host` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `tb_host`
---
-
-INSERT INTO `tb_host` (`id`, `nama_divisi`, `jumlah_host`) VALUES
-(1, 'CS Dept', '80'),
-(8, 'HRD', '20'),
-(17, 'Administrasi', '5'),
-(18, 'Operator', '12'),
-(19, 'Sales', '7'),
-(24, 'Direktur', '4');
-
 -- --------------------------------------------------------
 
 --
@@ -85,13 +61,6 @@ CREATE TABLE `tb_network` (
   `alamat_ip` varchar(20) NOT NULL,
   `slash` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tb_network`
---
-
-INSERT INTO `tb_network` (`id`, `alamat_ip`, `slash`) VALUES
-(15, '192.168.10.0', 24);
 
 -- --------------------------------------------------------
 
@@ -111,8 +80,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `nama_user`, `username`, `password`) VALUES
-(1, 'Pengguna', 'Pengguna123', 'b0a4b508ff239219a599b4027e2aeb48'),
-(3, 'Admin', 'admin123', '0192023a7bbd73250516f069df18b500');
+(1, 'Pengguna123', 'Pengguna', 'b0a4b508ff239219a599b4027e2aeb48');
 
 --
 -- Indexes for dumped tables
@@ -151,7 +119,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_hasil`
 --
 ALTER TABLE `tb_hasil`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_host`
@@ -163,13 +131,13 @@ ALTER TABLE `tb_host`
 -- AUTO_INCREMENT untuk tabel `tb_network`
 --
 ALTER TABLE `tb_network`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
