@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-success">
+<nav class="navbar navbar-dark navbar-expand-lg bg-success sticky-top">
   <div class="container">
     <a class="navbar-brand text-white" style="font-weight: bold;">Hitung Subnetting</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

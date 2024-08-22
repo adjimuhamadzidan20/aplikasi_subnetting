@@ -14,10 +14,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<title>Hitung Subnetting</title>
+	<link rel="stylesheet" href="plugin/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugin/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugin/datatables-buttons/css/buttons.bootstrap4.min.css">
 	<style type="text/css">
 		.tab-menu {
 			color: black;
 		}
+
+		.tabel-host-network, .tabel-ip-network, .tb-hasil-semua,
+		.tb-hasil-net, .tb-hasil-range, .tb-hasil-broad {
+			margin-bottom: 50px;
+		}
+
+		.dataTables_paginate .paginate_button.page-item.active a {
+      background-color: #198754;
+      border-color: #198754;
+    }
+
+    .dataTables_paginate .paginate_button.page-item:not(.active) a {
+      color: #198754;
+    }  
 
 		@media screen and (max-width: 600px) {
 			.tambah-ip, .generate-load, .generate, .tambah-host {
@@ -69,6 +86,12 @@
 
 	<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="jquery/jquery-3.7.1.js"></script>
+	<script src="plugin/datatables/jquery.dataTables.min.js"></script>
+	<script src="plugin/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="plugin/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="plugin/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<script src="plugin/datatables-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="plugin/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
 
 	<script type="text/javascript">
 		$('#editHost').on('show.bs.modal', function (event) {
@@ -118,6 +141,28 @@
 		    }
 		    e.preventDefault();
 		});
+  </script>
+
+  <script type="text/javascript">
+  	$('#tabel_ip').DataTable({
+	    "paging": false,
+	    "lengthChange": false,
+	    "searching": false,
+	    "ordering": false,
+	    "info": true,
+	    "autoWidth": false,
+	    "responsive": true,
+	  });
+
+	  $('#tabel_host').DataTable({
+	    "paging": true,
+	    "lengthChange": false,
+	    "searching": false,
+	    "ordering": false,
+	    "info": true,
+	    "autoWidth": false,
+	    "responsive": true,
+	  });
   </script>
 
 </body>

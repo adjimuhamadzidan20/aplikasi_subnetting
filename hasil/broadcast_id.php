@@ -4,7 +4,7 @@
 		<a href="proses/cetak_hasil_excel.php?proses=hasil_broad" class="btn btn-outline-success btn-sm cetak-excel">Cetak Excel</a>
 	</div>
 </div>
-<div class="table-responsive">
+<div class="table-responsive tb-hasil-broad">
 	<table class="table">
 	  <thead>
 	    <tr>

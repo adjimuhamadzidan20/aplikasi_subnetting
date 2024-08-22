@@ -63,7 +63,7 @@
 ?>
 
 <div class="tabel-host-network table-responsive">
-	<table class="table">
+	<table class="table" id="tabel_host">
 	  <thead>
 	    <tr>
 	      <th scope="col" nowrap="nowrap">No</th>

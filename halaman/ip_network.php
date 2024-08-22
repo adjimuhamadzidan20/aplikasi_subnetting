@@ -36,7 +36,7 @@
 
 <span class="text-secondary" style="font-size: 12px;"><i>*Note : IP Network tidak bisa dimasukkan lebih dari 1 data</i></span>
 <div class="tabel-ip-network table-responsive">
-	<table class="table">
+	<table class="table" id="tabel_ip">
 	  <thead>
 	    <tr>
 	      <th scope="col" nowrap="nowrap">Alamat IP</th>

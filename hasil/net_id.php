@@ -4,7 +4,7 @@
 		<a href="proses/cetak_hasil_excel.php?proses=hasil_net" class="btn btn-outline-success btn-sm cetak-excel">Cetak Excel</a>
 	</div>
 </div>
-<div class="table-responsive">
+<div class="table-responsive tb-hasil-net">
 	<table class="table">
 	  <thead>
 	    <tr>

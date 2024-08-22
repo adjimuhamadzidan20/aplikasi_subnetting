@@ -109,6 +109,7 @@
 			// data jumlah host
 			$queryHost = "SELECT jumlah_host, id FROM tb_host";
 			$returnHost = mysqli_query($conn, $queryHost);
+			$jumlahDataHost = mysqli_num_rows($returnHost);
 			$dataHost = [];
 			while ($row = mysqli_fetch_assoc($returnHost)) {
 				$dataHost[] = $row;
@@ -173,40 +174,50 @@
         $networkBinary = $nextNetworkBinary;
 	    }
 
-	    if ($jumlahData > 0) {
-				$query = "TRUNCATE TABLE tb_hasil";
-				mysqli_query($conn, $query);
+	    // jika data host belum ada tidak bisa generate
+	    if ($jumlahDataHost == 0) {
+	    	$_SESSION['status'] = 'warning';
+				$_SESSION['pesan'] = 'Data host jaringan masih kosong, silahkan masukkan dahulu!';
 
-				// hasil perhitungan masuk ke database
-		    foreach ($subnets as $hasil) {
-		    	$hostID = $hasil['id'];
-	        $networkIp = $hasil['network'];
-	        $ipAwal = $hasil['ip_awal'];
-	        $ipAkhir = $hasil['ip_akhir'];
-	        $ipBroad = $hasil['broadcast'];
-	        $pref = $hasil['prefix'];
-	        $subnet = $hasil['subnet_mask'];
-
-		    	$query = "INSERT INTO tb_hasil VALUES ('', '$hostID', '$networkIp', '$ipAwal', '$ipAkhir', '$ipBroad', 
-		    	'$pref', '$subnet')";
-					$return = mysqli_query($conn, $query);
-		    }
+				header('Location: ../index.php?hal=host_network');
+				exit;
 			}
 			else {
-				// hasil perhitungan masuk ke database
-		    foreach ($subnets as $hasil) {
-		    	$hostID = $hasil['id'];
-	        $networkIp = $hasil['network'];
-	        $ipAwal = $hasil['ip_awal'];
-	        $ipAkhir = $hasil['ip_akhir'];
-	        $ipBroad = $hasil['broadcast'];
-	        $pref = $hasil['prefix'];
-	        $subnet = $hasil['subnet_mask'];
+		    if ($jumlahData > 0) {
+					$query = "TRUNCATE TABLE tb_hasil";
+					mysqli_query($conn, $query);
 
-		    	$query = "INSERT INTO tb_hasil VALUES ('', '$hostID', '$networkIp', '$ipAwal', '$ipAkhir', '$ipBroad', 
-		    	'$pref', '$subnet')";
-					$return = mysqli_query($conn, $query);
-		    }
+					// hasil perhitungan masuk ke database
+			    foreach ($subnets as $hasil) {
+			    	$hostID = $hasil['id'];
+		        $networkIp = $hasil['network'];
+		        $ipAwal = $hasil['ip_awal'];
+		        $ipAkhir = $hasil['ip_akhir'];
+		        $ipBroad = $hasil['broadcast'];
+		        $pref = $hasil['prefix'];
+		        $subnet = $hasil['subnet_mask'];
+
+			    	$query = "INSERT INTO tb_hasil VALUES ('', '$hostID', '$networkIp', '$ipAwal', '$ipAkhir', '$ipBroad', 
+			    	'$pref', '$subnet')";
+						$return = mysqli_query($conn, $query);
+			    }
+				}
+				else {
+					// hasil perhitungan masuk ke database
+			    foreach ($subnets as $hasil) {
+			    	$hostID = $hasil['id'];
+		        $networkIp = $hasil['network'];
+		        $ipAwal = $hasil['ip_awal'];
+		        $ipAkhir = $hasil['ip_akhir'];
+		        $ipBroad = $hasil['broadcast'];
+		        $pref = $hasil['prefix'];
+		        $subnet = $hasil['subnet_mask'];
+
+			    	$query = "INSERT INTO tb_hasil VALUES ('', '$hostID', '$networkIp', '$ipAwal', '$ipAkhir', '$ipBroad', 
+			    	'$pref', '$subnet')";
+						$return = mysqli_query($conn, $query);
+			    }
+				}
 			}
 
 	    header('Location: ../index.php?hal=hasil');
