@@ -1,7 +1,7 @@
 <div class="judul-tentang my-3 px-2 px-sm-0">
 	<h3>Tentang</h3>	
 </div>
-<div class="tentang mb-4 px-2 px-sm-0" style="line-height: 26px; text-align: justify;">
+<div class="tentang px-2 px-sm-0" style="line-height: 26px; text-align: justify;">
 	<p>Hitung subnetting adalah sebuah aplikasi berbasis web yang berguna untuk menghitung subnetting jaringan berdasarkan jumlah
 	host atau client yang dibutuhkan. metode dalam menghitung subnetting ini menggunakan rumus VLSM. VLSM adalah pengembangan mekanisme subnetting, dimana dalam VLSM dilakukan peningkatan dari kelemahan subneting klasik, yang mana dalam clasik subneting, subnet zeroes, dan subnet-ones tidak bisa digunakan.</p>
 	

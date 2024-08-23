@@ -1,7 +1,7 @@
 <div class="judul-cara-penggunaan my-3 px-2 px-sm-0">
 	<h3>Cara Penggunaan</h3>	
 </div>
-<div class="cara-penggunaan mb-4 px-2 px-sm-0" style="text-align: justify;">
+<div class="cara-penggunaan px-2 px-sm-0" style="text-align: justify;">
 	<ol class="list-group list-group-numbered">
 	  <li class="list-group-item">
 	  	Masukkan alamat IP atau IP Address beserta slash yang sudah ditentukan pada halaman IP Jaringan.

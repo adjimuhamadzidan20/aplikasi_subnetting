@@ -27,6 +27,10 @@
 			margin-bottom: 50px;
 		}
 
+		.tentang, .cara-penggunaan {
+			margin-bottom: 80px;
+		}
+
 		.dataTables_paginate .paginate_button.page-item.active a {
       background-color: #198754;
       border-color: #198754;
@@ -125,21 +129,21 @@
   	// mengambil/memanggil button check
 		let check = document.getElementById('generate');
 		check.addEventListener('click', (e) => {
-		    if(true) {
-		        // memanggil & menampilkan loading button
-		        let loadingbtn = document.getElementById('button-cek');
-		        loadingbtn.style.display = 'block';
+	    if(true) {
+        // memanggil & menampilkan loading button
+        let loadingbtn = document.getElementById('button-cek');
+        loadingbtn.style.display = 'block';
 
-		        // mengganti & menyembunyikan button check
-		        let check =  document.getElementById('generate');
-		        // check.innerHTML = loadingbtn;
-		        check.style.display = 'none';
-		        
-		        setTimeout(function hasil() { 
-		        	document.location.href = 'proses/host_network_proses.php?proses=generate';
-		        }, 900);
-		    }
-		    e.preventDefault();
+        // mengganti & menyembunyikan button check
+        let check =  document.getElementById('generate');
+        // check.innerHTML = loadingbtn;
+        check.style.display = 'none';
+        
+        setTimeout(function hasil() { 
+        	document.location.href = 'proses/host_network_proses.php?proses=generate';
+        }, 900);
+	    }
+	    e.preventDefault();
 		});
   </script>
 
